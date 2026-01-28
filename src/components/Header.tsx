@@ -1,7 +1,11 @@
 // Header component remains the same, but ensure it uses toggleDarkMode prop
 import { Sun, Moon } from "lucide-react"; // Added import for Lucide icons
-
-export function Header({ darkMode, toggleDarkMode, logout }: any) {
+type HeaderProps = {
+  darkMode: boolean;
+  toggleDarkMode: () => void;
+  logout: () => void;
+};
+export function Header({ darkMode, toggleDarkMode, logout }: HeaderProps) {
   return (
     <header className="bg-white dark:bg-gray-800 rounded-xl shadow-sm mb-8 transition-colors duration-300">
       <div className="px-6 py-5 flex items-center justify-between">

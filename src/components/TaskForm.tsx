@@ -36,8 +36,8 @@ export function TaskForm({ onSubmit }: TaskFormProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 transition-colors duration-300">
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+    <div className="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-6 transition-colors duration-300">
+      <h2 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6">
         Create New Task
       </h2>
 
@@ -49,7 +49,7 @@ export function TaskForm({ onSubmit }: TaskFormProps) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200"
+            className="w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-600 focus:border-transparent text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 transition-colors duration-200"
           />
         </div>
 
@@ -60,16 +60,16 @@ export function TaskForm({ onSubmit }: TaskFormProps) {
             onChange={(e) => setDescription(e.target.value)}
             rows={4}
             required
-            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none transition-colors duration-200"
+            className="w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-600 focus:border-transparent text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 resize-none transition-colors duration-200"
           ></textarea>
         </div>
 
         <div>
           <label
             htmlFor="file-input"
-            className="block w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-200 text-center"
+            className="block w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-800 border-2 border-dashed border-neutral-300 dark:border-neutral-600 rounded-lg cursor-pointer transition-all duration-200 text-center"
           >
-            <span className="text-gray-600 dark:text-gray-300 flex items-center justify-center">
+            <span className="text-neutral-600 dark:text-neutral-300 flex items-center justify-center">
               <Paperclip className="mr-2 h-5 w-5" />
               {image ? image.name : "Attach Image (Optional)"}
             </span>
@@ -86,7 +86,7 @@ export function TaskForm({ onSubmit }: TaskFormProps) {
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-4 py-3 text-gray-900 bg-gray-200 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 disabled:bg-gray-400 dark:text-white font-bold rounded-lg transition-all duration-200  hover:scale-101 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center"
+          className="w-full px-4 py-3 text-neutral-900 bg-neutral-200 dark:bg-neutral-800 dark:text-white font-bold rounded-lg transition-all duration-200  disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center cursor-pointer"
         >
           {loading ? (
             "Creating..."

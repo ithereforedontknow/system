@@ -34,12 +34,12 @@ export function TaskCard({ task, onUpdate, onDelete }: TaskCardProps) {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+    <div className="bg-neutral-50 dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-600 rounded-xl p-6 transition-all duration-200 hover:shadow-md hover:-translate-y-1">
       <div className="flex justify-between items-start mb-4">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
           {task.title}
         </h3>
-        <span className="px-3 py-1 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 text-sm rounded-full">
+        <span className="px-3 py-1 bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 text-sm rounded-full">
           {formatDate(task.created_at)}
         </span>
       </div>
@@ -50,13 +50,13 @@ export function TaskCard({ task, onUpdate, onDelete }: TaskCardProps) {
             value={editDescription}
             onChange={(e) => setEditDescription(e.target.value)}
             rows={3}
-            className="w-full px-4 py-3 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-gray-900 dark:text-white resize-none transition-colors duration-200"
+            className="w-full px-4 py-3 bg-white dark:bg-neutral-800 border-2 border-neutral-300 dark:border-neutral-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:border-transparent text-neutral-900 dark:text-white resize-none transition-colors duration-200"
           />
           <div className="flex gap-2">
             <button
               onClick={handleUpdate}
               disabled={loading}
-              className="px-4 py-2.5 rounded-lg text-gray-900 dark:text-white font-bold bg-gray-300 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 hover:scale-105 disabled:cursor-not-allowed disabled:bg-gray-400 dark:disabled:bg-gray-500 flex items-center"
+              className="px-4 py-2.5 rounded-lg text-neutral-900 dark:text-white font-bold bg-neutral-300 dark:bg-neutral-900 transition-all duration-200 hover:scale-105 disabled:cursor-not-allowed disabled:bg-neutral-400 dark:disabled:bg-neutral-900 flex items-center"
             >
               {loading ? (
                 "Saving..."
@@ -71,14 +71,14 @@ export function TaskCard({ task, onUpdate, onDelete }: TaskCardProps) {
                 setIsEditing(false);
                 setEditDescription(task.description);
               }}
-              className="px-4 py-2.5 rounded-lg text-gray-900 dark:text-white font-bold bg-gray-300 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 hover:scale-105 flex items-center"
+              className="px-4 py-2.5 rounded-lg text-neutral-900 dark:text-white font-bold bg-neutral-300 dark:bg-neutral-900 transition-all duration-200 hover:scale-105 flex items-center"
             >
               <X className="mr-2 h-4 w-4" /> Cancel
             </button>
           </div>
         </div>
       ) : (
-        <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+        <p className="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
           {task.description}
         </p>
       )}
@@ -97,14 +97,14 @@ export function TaskCard({ task, onUpdate, onDelete }: TaskCardProps) {
         <div className="flex gap-2">
           <button
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2.5 rounded-lg text-gray-900 dark:text-white font-bold bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200 hover:scale-105 flex items-center"
+            className="px-4 py-2.5 rounded-lg text-neutral-900 dark:text-white font-bold bg-neutral-200 dark:bg-neutral-900 transition-all duration-200 hover:scale-105 flex items-center"
           >
             <Pencil className="mr-2 h-4 w-4" /> Edit
           </button>
           <button
             onClick={handleDelete}
             disabled={loading}
-            className="px-4 py-2.5 rounded-lg text-gray-900 dark:text-white font-bold bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200 hover:scale-105 disabled:cursor-not-allowed disabled:transform-none flex items-center"
+            className="px-4 py-2.5 rounded-lg text-neutral-900 dark:text-white font-bold bg-neutral-200 dark:bg-neutral-900 transition-all duration-200 hover:scale-105 disabled:cursor-not-allowed disabled:transform-none flex items-center"
           >
             {loading ? (
               "Deleting..."

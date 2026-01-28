@@ -9,14 +9,14 @@ interface TaskListProps {
 
 export function TaskList({ tasks, onUpdate, onDelete }: TaskListProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 transition-colors duration-300">
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+    <div className="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-6 transition-colors duration-300">
+      <h2 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6">
         Your Tasks ({tasks.length})
       </h2>
 
       {tasks.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-gray-500 dark:text-gray-400">
+          <p className="text-neutral-500 dark:text-neutral-400">
             No tasks yet. Create one to get started!
           </p>
         </div>

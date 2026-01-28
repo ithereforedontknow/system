@@ -38,7 +38,7 @@ export function Auth() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="w-full max-w-md">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-colors duration-300">
+        <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-xl p-8 transition-colors duration-300">
           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
             {isSignUp ? "Create Account" : "Welcome Back"}
           </h2>
@@ -59,7 +59,9 @@ export function Auth() {
                   setEmail(e.target.value)
                 }
                 required
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200"
+                // Disable input so user can't change email mid-request
+                disabled={loading}
+                className="w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-600 focus:border-transparent text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 transition-colors duration-200"
               />
             </div>
 
@@ -72,25 +74,39 @@ export function Auth() {
                   setPassword(e.target.value)
                 }
                 required
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200"
+                disabled={loading}
+                className="w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-600 focus:border-transparent text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 transition-colors duration-200"
               />
             </div>
 
             <button
               type="submit"
+              // This prevents clicking while the request is in flight
               disabled={loading}
-              className="w-full px-4 py-2.5 rounded-lg text-gray-900 dark:text-white font-bold bg-gray-200 dark:bg-gray-700  dark:hover:bg-gray-600 transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2.5 rounded-lg text-gray-900 dark:text-white font-bold bg-gray-200 dark:bg-neutral-800 transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
-              {loading ? "Loading..." : isSignUp ? "Sign Up" : "Sign In"}
+              {loading ? (
+                <span className="flex items-center justify-center gap-2">
+                  {/* Simple CSS Spinner */}
+                  <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                  Processing...
+                </span>
+              ) : isSignUp ? (
+                "Sign Up"
+              ) : (
+                "Sign In"
+              )}
             </button>
 
+            {/* Also disable the toggle button during loading */}
             <button
               type="button"
+              disabled={loading}
               onClick={() => {
                 setIsSignUp(!isSignUp);
                 setError("");
               }}
-              className="w-full px-4 py-2.5 rounded-lg text-gray-900 dark:text-white font-bold bg-gray-200 dark:bg-gray-700  dark:hover:bg-gray-600 transition-all duration-200 hover:scale-105"
+              className="w-full px-4 py-2.5 rounded-lg text-gray-900 dark:text-white font-bold bg-gray-200 dark:bg-neutral-800 transition-all duration-200 hover:scale-105 disabled:opacity-50"
             >
               {isSignUp
                 ? "Already have an account? Sign In"

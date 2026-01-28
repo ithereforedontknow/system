@@ -1,42 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f5f7fa;
+    color: #2d3748;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    min-height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+body.dark-mode .app-header {
+    background: #2d3748;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.card {
-  padding: 2em;
+.app-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #2d3748;
 }
 
-.read-the-docs {
-  color: #888;
+body.dark-mode .app-header h1 {
+    color: #e2e8f0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: #edf2f7;
+    transform: scale(1.05);
+}
+
+body.dark-mode .theme-toggle {
+    background: #1a202c;
+    border-color: #4a5568;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: #2d3748;
+}
+
+.logout-btn {
+    background: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #c53030;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+/* Auth Styles */
+.auth-container {
+    max-width: 400px;
+    margin: 6rem auto;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .auth-container {
+    background: #2d3748;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2d3748;
+    font-size: 1.75rem;
+}
+
+body.dark-mode .auth-container h2 {
+    color: #e2e8f0;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-container input {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    color: #2d3748;
+}
+
+body.dark-mode .auth-container input {
+    background: #1a202c;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+.auth-container input:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.auth-container button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-container button[type="submit"] {
+    background: #4299e1;
+    color: white;
+}
+
+.auth-container button[type="submit"]:hover {
+    background: #3182ce;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
+.auth-container button:not([type="submit"]) {
+    background: transparent;
+    color: #4299e1;
+    border: 2px solid #4299e1;
+}
+
+body.dark-mode .auth-container button:not([type="submit"]) {
+    color: #63b3ed;
+    border-color: #63b3ed;
+}
+
+.auth-container button:not([type="submit"]):hover {
+    background: #4299e1;
+    color: white;
 }
